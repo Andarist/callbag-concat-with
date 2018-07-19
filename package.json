@@ -1,6 +1,6 @@
 {
   "name": "callbag-concat-with",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "👜 Callbag operator that emits items given it as arguments after it finishes emitting items emitted by source.",
   "main": "dist/callbag-concat-with.js",
   "module": "dist/callbag-concat-with.esm.js",
