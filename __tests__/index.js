@@ -7,13 +7,9 @@ import subject from 'callbag-subject'
 import take from 'callbag-take'
 import tap from 'callbag-tap'
 import tapUp from 'callbag-tap-up'
+import toPromise from 'callbag-to-promise'
 
 import concatWith from '../src'
-
-const delay = ms =>
-  new Promise(resolve => {
-    setTimeout(resolve, ms)
-  })
 
 const noop = () => {}
 const autoPull = noop
@@ -21,16 +17,15 @@ const autoPull = noop
 test('works with listenables', () => {
   const actual = []
 
-  pipe(
+  return pipe(
     interval(30),
     take(4),
     concatWith(4),
-    forEach(value => {
+    tap(value => {
       actual.push(value)
     }),
-  )
-
-  return delay(140).then(() => {
+    toPromise,
+  ).then(() => {
     expect(actual).toEqual([0, 1, 2, 3, 4])
   })
 })
