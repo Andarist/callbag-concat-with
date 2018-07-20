@@ -50,5 +50,9 @@
     "rimraf": "^2.6.2",
     "rollup": "^0.62.0",
     "rollup-plugin-babel": "4.0.0-beta.7"
+  },
+  "dependencies": {
+    "callbag-concat": "^1.1.0",
+    "callbag-of": "^1.0.0"
   }
 }
