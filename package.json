@@ -54,6 +54,6 @@
   },
   "dependencies": {
     "callbag-concat": "^1.1.0",
-    "callbag-of": "^1.0.0"
+    "callbag-of": "^2.0.0"
   }
 }
