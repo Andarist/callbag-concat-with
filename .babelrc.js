@@ -8,5 +8,6 @@ module.exports = {
       loose,
       modules,
     }],
+    '@babel/typescript'
   ],
 }

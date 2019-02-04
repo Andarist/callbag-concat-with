@@ -2,17 +2,21 @@
   "name": "callbag-concat-with",
   "version": "1.1.1",
   "description": "👜 Callbag operator that emits items given it as arguments after it finishes emitting items emitted by source.",
-  "main": "dist/callbag-concat-with.js",
-  "module": "dist/callbag-concat-with.esm.js",
+  "main": "./dist/callbag-concat-with.cjs.js",
+  "module": "./dist/callbag-concat-with.esm.js",
+  "types": "./types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
     "pretest": "npm run build",
     "test": "jest --env=node",
     "precommit": "lint-staged",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist types",
     "build": "rollup -c",
+    "build:types": "tsc",
+    "postbuild": "npm run build:types",
     "prepare": "npm test"
   },
   "repository": {
@@ -32,6 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
+    "@babel/preset-typescript": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^22.4.3",
     "callbag-for-each": "^1.0.1",
@@ -50,10 +55,12 @@
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
     "rollup": "^0.66.6",
-    "rollup-plugin-babel": "^4.0.3"
+    "rollup-plugin-babel": "^4.0.3",
+    "typescript": "^3.3.1"
   },
   "dependencies": {
-    "callbag-concat": "^1.1.0",
+    "callbag": "^1.1.0",
+    "callbag-concat": "^1.2.0",
     "callbag-of": "^2.0.0"
   }
 }
